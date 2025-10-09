@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+
+            background-color: #0f172a;
+            border: none;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            color: white;
+
+        }
+
+        .image {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid violet;
+            box-shadow: 0 0 5px #0ef, 0 0 25px #0ef, 0 0 50px #0ef, 0 0 150px #0ef;
+
+            margin-top: -450px;
+            margin-left: 60%;
+            position: relative;
+
+        }
+
+        .image img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-position: 50% 10%;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: #051129;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            position: relative;
+            font-size: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: default;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+        }
+
+        .navbar a {
+            display: inline-block;
+            font-size: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: .3s;
+            opacity: 0;
+            animation: slideTop .5s ease forwards;
+            opacity: 0;
+            animation: slideTop .5s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+
+        .navbar a:hover {
+            color: #0ef;
+
+        }
+
+
+        .home {
+
+            position: relative;
+            width: 100%;
+            justify-content: space-between;
+            height: 100vh;
+            display: flex;
+            padding: 250px 10% 0;
+            color: white;
+
+        }
+
+        .home-content {
+            max-width: 600px;
+
+        }
+
+        .home-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            opacity: 0;
+            animation: slideBottom 1s ease forwards;
+            animation-delay: .7s;
+        }
+
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: 30px;
+            animation: slideTop 1s ease forwards;
+            animation-delay: .7s;
+        }
+
+        .home-content h3 span {
+            color: #0ef;
+            padding: 10px;
+        }
+
+        .home-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin: -3px 0;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .home-content p {
+            margin-top: 20px;
+            font-size: 20px;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: .7s;
+
+        }
+
+        .home-sci a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #0ef;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #0ef;
+            text-decoration: none;
+            transition: .5s ease;
+            opacity: 0;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+            margin: 30px 15px 30px 0;
+        }
+
+        .home-sci a:hover {
+            background: #0ef;
+            color: #081b29;
+            box-shadow: 0 0 20px #0ef;
+        }
+
+        .btn-box {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #0ef;
+            border-radius: 40px;
+            font-size: 20px;
+            color: #081b29;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-weight: 600;
+            box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .btn-box:hover {
+            box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 100px cyan, 0 0 200px cyan;
+        }
+
+        .image2 {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid violet;
+            box-shadow: 0 0 5px #0ef, 0 0 25px #0ef, 0 0 50px #0ef, 0 0 150px #0ef;
+            margin-top: 27%;
+
+            margin-left: 10%;
+            position: relative;
+        }
+
+        .image2 img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-position: 50% 10%;
+        }
+
+        .about {
+
+
+            margin-top: 80px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            text-align: center;
+            gap: 1.5rem;
+
+        }
+
+        .about-text {
+            margin-top: 50px;
+            margin-right: 20px;
+        }
+
+        .about-text h2 {
+            font-size: 60px;
+            color: aliceblue;
+
+        }
+
+        .about-text h2 span {
+            color: #0ef;
+        }
+
+        .about-text h4 {
+            font-size: 29px;
+            font-weight: 600px;
+            color: #fff;
+            line-height: 1.5;
+            margin: 10px 0 20px;
+
+        }
+
+        .about-text p {
+
+            color: aliceblue;
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+
+        }
+
+        .service {
+            color: aliceblue;
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 4rem;
+        }
+
+        .sub-title {
+            text-align: center;
+            font-size: 60px;
+            padding-bottom: 60px;
+        }
+
+        .sub-title span {
+            color: #0ef;
+        }
+
+        .container {
+            padding: 90px;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+
+        }
+
+        .service-list div {
+            background-color: transparent;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 13px;
+            border-right: 20px;
+            border-radius: 20px;
+            transition: background 0.5, transform 0.5s;
+            box-shadow: 1px 1px 20px #012290f7, 1px 1px 40px #0053b8f7;
+
+        }
+
+        .service-list div i {
+            font-size: 50px;
+            margin-bottom: 30px
+        }
+
+        .service-list div h2 {
+            font-size: 30px;
+            font-weight: 500px;
+            margin-bottom: 15px;
+        }
+
+        .service-list div a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 12px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .read {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #0ef;
+            border-radius: 40px;
+            font-size: 16px;
+            color: #081b29;
+            letter-spacing: 1px;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0;
+            box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+            animation-delay: 2s;
+            box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+        }
+
+        .read:hover {
+            box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 100px cyan, 0 0 200px cyan;
+        }
+
+        .service-list div:hover {
+            transform: translateY(-10px);
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .container1 {
+            width: 600px;
+            height: 500px;
+            padding: 75px 90px;
+            margin-left: 9px;
+
+
+
+
+        }
+
+        .heading1 {
+            text-align: center;
+            text-decoration: underline;
+            text-underline-offset: 10px;
+            text-decoration-thickness: 5px;
+            margin-bottom: 50px;
+
+        }
+
+        .bar {
+            font-size: 23px;
+        }
+
+        .Technical-bars .bar {
+            margin-bottom: 30px;
+
+        }
+
+        .Technical-bars .bar:first-child {
+            margin-top: 0;
+        }
+
+        .Technical-bars .bar:last-child {
+            margin-bottom: 0;
+        }
+
+        .Technical-bars .bar .info {
+            margin-bottom: 5px;
+
+        }
+
+        .Technical-bars .bar .info span {
+            font-size: 17px;
+            font-weight: 500;
+            animation: showText 0.5s 1s linear forwards;
+            opacity: 0;
+        }
+
+        .Technical-bars .bar .progress-line {
+            position: relative;
+            border-radius: 10px;
+            width: 100%;
+            height: 5px;
+
+
+            background-color: #000000;
+            animation: animate 1s cubic-bezier(1, 0, 0, 1) forwards;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        @keyframes animate {
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        .Technical-bars .bar .progress-line span {
+            height: 100%;
+            background-color: #0ef;
+            position: absolute;
+            border-radius: 10px;
+            animation: animate 1s 1s cubic-bezier(1, 0, 0, 1) forwards;
+            transform: scaleX(0);
+            transform-origin: left;
+
+        }
+
+        .progress-line.html span {
+            width: 90%;
+        }
+
+        .progress-line.css span {
+            width: 70%;
+
+        }
+
+        .progress-line.Javascript span {
+            width: 70%;
+        }
+
+        .progress-line.react span {
+            width: 82%;
+        }
+
+        .progress-line.Python span {
+            width: 80%;
+        }
+
+        .progress-line span::after {
+            position: absolute;
+            padding: 1px 8px;
+            background-color: #000000;
+            color: #fff;
+            font-size: 12px;
+            border-radius: 3px;
+            top: -28px;
+            right: -20px;
+            animation: showText 0.5s 1.5s linear forwards;
+            opacity: 0;
+        }
+
+        .progress-line.html span::after {
+            content: "90%";
+        }
+
+        .progress-line.css span::after {
+            content: "70%";
+
+        }
+
+        .progress-line.Javascript span::after {
+            content: "70%";
+        }
+
+        .progress-line.react span::after {
+            content: "82%";
+        }
+
+        .progress-line.Python span::after {
+            content: "80%";
+        }
+
+        .progress-line span::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-bottom-width: 0px;
+            border-right-width: 0px;
+
+            top: -10px;
+            animation: showText 0.5s 1.5s linear forwards;
+            opacity: 0;
+
+        }
+
+        @keyframes showText {
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .container2 {
+            width: 600px;
+            height: 600px;
+            padding: 75px 90px;
+            margin-left: 50%;
+            position: absolute;
+        }
+
+        .radial-bars {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+
+        .radial-bars .radial-bar {
+            width: 50%;
+
+            height: 170px;
+            margin-bottom: 10px;
+            position: relative;
+
+        }
+
+        .radial-bars .radial-bar svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-90deg);
+            width: 120px;
+            height: 160px;
+        }
+
+        .radial-bars .radial-bar .progress-bar {
+            stroke-width: 10;
+            stroke: #000000;
+
+            fill: transparent;
+            stroke-dasharray: 502;
+            stroke-dashoffset: 502;
+            stroke-linecap: round;
+            animation: animate-bar 1s linear forwards;
+        }
+
+        @keyframes animate-bar {
+            100% {
+                stroke-dashoffset: -1;
+            }
+
+        }
+
+        .path {
+            stroke-width: 10;
+            stroke: #0ef;
+            fill: transparent;
+            stroke-dasharray: 502;
+            stroke-dashoffset: 502;
+            stroke-linecap: round;
+
+        }
+
+        .path-1 {
+            animation: animate-path1 1s 1s linear forwards;
+        }
+
+        .path-2 {
+            animation: animate-path2 1s 1s linear forwards;
+        }
+
+        .path-3 {
+            animation: animate-path3 1s 1s linear forwards;
+        }
+
+        .path-4 {
+            animation: animate-path4 1s 1s linear forwards;
+        }
+
+        @keyframes animate-path1 {
+            100% {
+                stroke-dashoffset: 50;
+            }
+
+        }
+
+        @keyframes animate-path2 {
+            100% {
+                stroke-dashoffset: 175;
+            }
+
+        }
+
+        @keyframes animate-path3 {
+            100% {
+                stroke-dashoffset: 125;
+            }
+
+        }
+
+        @keyframes animate-path4 {
+            100% {
+                stroke-dashoffset: 75;
+            }
+
+        }
+
+        .radial-bar .percentage {
+            position: absolute;
+            top: 50%;
+
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 17px;
+            font-weight: 500;
+            animation: showText 0.5 1s linear forwards;
+            opacity: 0;
+        }
+
+        .radial-bar .text {
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            bottom: -5px;
+            transform: translate(-50px);
+            font-size: 17px;
+            font-weight: 500;
+            animation: showText 0.5s 1s linear forwards;
+
+            opacity: 0;
+        }
+
+        .main-text {
+            padding-top: 130px;
+            margin-top: 100px;
+
+        }
+
+        .main-text h2 {
+            font-size: 60px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .main-text h2 span {
+            color: #0ef;
+            padding-left: 10px;
+        }
+
+        .Portfolio-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            max-width: 700px;
+            height: 500px;
+            margin-left: 50px;
+
+        }
+
+        .row {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+
+
+        }
+
+        .row img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+
+            transition: transform 0.5s;
+
+        }
+
+        .layer {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), #0ef);
+            position: absolute;
+            border-radius: 8px;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 40px;
+            transition: height 0.5s;
+
+        }
+
+        .layer h5 {
+            margin-top: 10px;
+
+            color: #000000;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 1.8;
+
+
+        }
+
+        .layer p {
+
+            color: #000000;
+            font-size: 1rem;
+            line-height: 1.2;
+        }
+
+        .layer i {
+            color: #ff004f;
+            margin-top: 20px;
+            background: #fff;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .row:hover img {
+            transform: scale(1.1);
+        }
+
+        .row:hover .layer {
+            height: 100%;
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            gap: 3rem;
+            padding-left: 30px;
+            margin-top: 130px;
+
+        }
+
+        .contact-text h2 {
+
+            font-size: 90px;
+            line-height: 1;
+            text-align: center;
+
+        }
+
+        .contact-text h2 span {
+            padding: 10px;
+            color: #0ef;
+        }
+        .contact-text h4{
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contact-list {
+            margin-bottom: 3rem;
+
+        }
+
+        .contact-list li {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contact-list i {
+            display: inline-block;
+            color: #0ef;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all .40s ease;
+        }
+
+        .contact-list i:hover {
+            transform: scale(1.01) translate(-5px);
+            color: #0ef;
+        }
+
+        .contact-icons i {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #0ef;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #0ef;
+            text-decoration: none;
+            margin: 30px 15px 30px 0;
+            transition: .5s ease;
+            opacity: 0;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+
+        .contact-icons i:hover {
+            background: #0ef;
+            color: #000000;
+            box-shadow: 0 0 20px #0ef;
+        }
+
+        .contact-form form {
+            position: relative;
+
+        }
+
+        .contact-forms {
+            height: 550px;
+            width: 500px;
+            padding-left: 45px;
+            padding-top: 40px;
+            background-color: transparent;
+
+            font-size: 13px;
+            font-weight: 13px;
+            border-right: 20px;
+            border-radius: 20px;
+
+            box-shadow: 1px 1px 20px #012290f7, 1px 1px 40px #0053b8f7;
+
+
+        }
+
+
+
+
+        .contact-form form input,
+        form textarea {
+            border: none;
+            outline: none;
+            width: 90%;
+            padding: 18px;
+            background: #555557;
+            color: #000000;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .contact-form form textarea {
+            resize: none;
+            height: 220px;
+        }
+
+        .contact-form form .send {
+            text-align: center;
+            display: inline-block;
+            padding: 14px 60px;
+            background: #0ef;
+            border-radius: 40px;
+            font-size: 18px;
+            color: #081b29;
+            letter-spacing: 1px;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+            animation-delay: 2s;
+            box-shadow: 0 0 5px #0ef, 0 0 25px #0ef
+        }
+
+        .contact-form form .send:hover {
+            box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 100px cyan, 0 0 200px cyan;
+        }
+
+        .last-text p {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: rgb(7, 85, 91);
+            font-weight: 300;
+            margin-top: 70px;
+        }
+
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideTop {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideBottom {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="#home" style="--i:1" class="active">Home</a>
+            <a href="#about" style="--i:2">About</a>
+            <a href="#services" style="--i:3">Services</a>
+            <a href="#skills" style="--i:4">Skill</a>
+            <a href="#project" style="--i:5">Project</a>
+            <a href="#contact" style="--i:6">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Seraj Hassan</h1>
+            <h3>And I'm a<span class="text"></span></h3>
+            <p>
+                I'm a web Designer with extensive experience for over 1 years.<br>expertise is to create and website
+                design, Frontend design, and many more....
+            </p>
+            <div class="home-sci">
+                <a href="#" style="--i:7"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" style="--i:8"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" style="--i:9"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" style="--i:10"><i class="fa-brands fa-x-twitter"></i></a>
+
+            </div>
+            <a href="#" class="btn-box">More About ME</a>
+        </div>
+    </section>
+    <div class="image">
+        <img src="image5.jpg">
+    </div>
+
+    <Section class="about" id="about">
+        <div class="image2">
+            <img src="image5.jpg">
+        </div>
+        <div class="about-text">
+            <h2>About<span>Me</span></h2>
+            <h4>Full Stack Developer</h4>
+            <p>
+                I’m a B.Tech student at Rameshwaram Institute of Technology & Management, affiliated with AKTU,
+                currently focused on web development. I have hands-on experience with frontend technologies like HTML,
+                CSS, JavaScript, and React, along with a solid understanding of SQL for database management.
+
+                Driven by curiosity and a passion for coding, I’m on a journey to become a proficient web developer. I
+                enjoy building responsive, user-centric websites and am always eager to learn new technologies and best
+                practices in the development world.
+
+
+            </p>
+            <a href="#" class="btn-box">More About Me</a>
+        </div>
+
+    </Section>
+    <section class="services" id="services">
+        <div class="service" id="service">
+            <div class="container">
+                <h1 class="sub-title">My<span>Services</span></h1>
+                <div class="service-list">
+                    <div>
+                        <i class="fa-brands fa-html5" style="color: #0ef;"></i>
+                        <h2>About HTML</h2>
+                        <p>I leverage my HTML expertise to help others by crafting clean, well-structured markup that
+                            not only meets design requirements but also enhances accessibility and performance. Whether
+                            I’m collaborating with designers to translate visual mockups into responsive, semantic
+                            webpages or guiding fellow developers through best practices—such as proper heading
+                            hierarchy, ARIA roles, and optimized image loading—I focus on building maintainable,
+                            future-proof code.
+
+
+                            <br>
+                            <a href="#" class="read">learn more</a>
+                        </p>
+
+
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-css3-alt" style="color: #0ef;"></i>
+                        <h2>About CSS</h2>
+                        <p>
+                            I use my CSS expertise to build scalable, maintainable stylesheets that bring designs to
+                            life across all devices. By leveraging methodologies like BEM and CSS Variables, I create
+                            clear, reusable components that speed up development.I optimize performance through
+                            techniques such as critical-path CSS and “mobile-first” media queries to ensure fast load
+                            times.Through detailed style guides and live code reviews, I empower teams to deliver
+                            polished, user-friendly interfaces<br>
+                            <a href="#" class="read">learn more</a>
+                        </p>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-apple" style="color: #0ef;"></i>
+                        <h2>Frontend Developer</h2>
+                        <p>
+                            I am a passionate Frontend Developer skilled in HTML, CSS, and JavaScript, focused on
+                            creating responsive, user-friendly web interfaces. I enjoy turning complex ideas into
+                            elegant, accessible designs using modern tools like React. Always learning, always
+                            improving.<br>
+                            <a href="#" class="read">learn more</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <h1 class="sub-title">My<span>Skills</span></h1>
+    <section class="skills" id="skills">
+        <div class="container1" id="Skills">
+            <h1 class="heading1">Technical Skills</h1>
+            <div class="Technical-bars">
+                <div class="bar"><i style="color:#c95d2e" class="fa-brands fa-html5"></i>
+                    <div class="info">
+                        <span>HTML</span>
+
+                    </div>
+                    <div class="progress-line html">
+                        <span></span>
+                    </div>
+
+                </div>
+                <div class="bar"><i style="color:#147bbc" class="fa-brands fa-css3-alt"></i>
+                    <div class="info">
+                        <span>CSS</span>
+
+                    </div>
+                    <div class="progress-line css">
+                        <span></span>
+                    </div>
+
+                </div>
+                <div class="bar"><i style="color:#b0bc1e" class="fa-brands fa-js"></i>
+                    <div class="info">
+                        <span>JavaScript</span>
+
+                    </div>
+                    <div class="progress-line Javascript">
+                        <span></span>
+                    </div>
+
+                </div>
+                <div class="bar"><i style="color:#c32ec9" class="fa-brands fa-react"></i>
+                    <div class="info">
+                        <span>react</span>
+
+                    </div>
+                    <div class="progress-line react">
+                        <span></span>
+                    </div>
+
+                </div>
+                <div class="bar"><i style="color:#69bcbc" class="fa-brands fa-python"></i>
+                    <div class="info">
+                        <span>Python</span>
+
+                    </div>
+                    <div class="progress-line Python">
+                        <span></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container2">
+            <h1 class="heading1">Professional Skills</h1>
+            <div class="radial-bars">
+                <div class="radial-bar">
+                    <svg x="0px" y="0px" viewBox="0 0 200 200">
+                        <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                        <circle class="path path-1" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <div class="percentage">90%</div>
+                    <div class="text">creativity</div>
+                </div>
+                <div class="radial-bar">
+                    <svg x="0px" y="0px" viewBox="0 0 200 200">
+                        <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                        <circle class="path path-2" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <div class="percentage">65%</div>
+                    <div class="text">Communication</div>
+                </div>
+                <div class="radial-bar">
+                    <svg x="0px" y="0px" viewBox="0 0 200 200">
+                        <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                        <circle class="path path-3" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <div class="percentage">75%</div>
+                    <div class="text">Problem Solving</div>
+                </div>
+                <div class="radial-bar">
+                    <svg x="0px" y="0px" viewBox="0 0 200 200">
+                        <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                        <circle class="path path-4" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <div class="percentage">85%</div>
+                    <div class="text">Team Work</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="project" id="project">
+        <div class="Portfolio" id="project">
+            <div class="main-text" id="project">
+                <h2>Latest<span>Project</span></h2>
+                <div class="Portfolio-content">
+                    <div class="row">
+                        <img src="https://hermes.dio.me/articles/cover/8baa0855-4bd5-4abf-a007-48527a7c5859.png"
+                            style="width:100%;height: 300px;">
+                        <div class="layer">
+                            <h5>UI/UX Design</h5>
+                            <p>Here's a new project I created while exploring frontend development. It showcases what
+                                I’ve learned so far!"</p>
+                            <a href="http://127.0.0.1:5500/Porfolio/index1.html"><i
+                                    class="fa-solid fa-arrow-up-right-from-square" style="color: aliceblue;"></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9UGr7b9JskCcEOJnLWmD1ZxMcCjqCsjAt_g&s"
+                            style="width:100%;height: 300px;">
+                        <div class="layer">
+                            <h5>UI/UX Design</h5>
+                            <p>UI/UX Design is the process that makes a website or app visually attractive,
+                                user-friendly, and efficient.
+
+                                A well-crafted UI/UX design enhances both the functionality and appeal of a product.</p>
+                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"
+                                    style="color: aliceblue;"></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPaQhktl1BzmiTvewmxdXi_s4JMhKPPO--0A&s"
+                            style="width:100%;height: 300px;">
+                        <div class="layer">
+                            <h5>UI/UX Design</h5>
+                            <p>UI/UX Design is the process that makes a website or app visually attractive,
+                                user-friendly, and efficient.
+
+                                A well-crafted UI/UX design enhances both the functionality and appeal of a product.</p>
+                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"
+                                    style="color: aliceblue;"></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img src="data:image/png;base64,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"
+                            style="width:100%;height: 300px;">
+
+
+                        <div class="layer">
+                            <h5>UI/UX Design</h5>
+                            <p>UI/UX Design is the process that makes a website or app visually attractive,
+                                user-friendly, and efficient.
+
+                                A well-crafted UI/UX design enhances both the functionality and appeal of a product.</p>
+                            <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"
+                                    style="color: aliceblue;"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="contact-text">
+            <h2>Contact<br><span>Me</span></h2>
+            <h4>Let's work Together</h4>
+            <p>UI/UX Design is the process that makes a website or app visually attractive,
+                user-friendly, and efficientn A well-crafted UI/UX design enhances both the functionality and appeal of
+                a product.
+            </p><br><br>
+            <div class="contact-list">
+                <li><i class="fa-solid fa-paper-plane"></i>seraj274505@gmail.com</li>
+                <li><i class="fa-solid fa-phone"></i>7379528297</li>
+            </div>
+            <div class="contact-icons">
+                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-x-twitter"></i></i></a>
+                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+
+        </div>
+        <div class="contact-form">
+            <form action="" class="contact-forms">
+                <input type="" placeholder="Enter Your Name" required>
+                <input type="email" placeholder="Enter Your Email" required>
+
+                <input type="" placeholder="Enter Your Subject">
+                <textarea name="" cols="40" rows="10" placeholder="Enter Your Message" required></textarea>
+                <input name="submit" value="submit" class="send">
+
+            </form>
+        </div>
+
+    </section>
+    <div class="last-text">
+        <p>Developed with loved by Seraj Hassan @ 2025</p>
+    </div>
+
+
+
+    <script>
+        var typed = new Typed(".text", {
+            strings: ["Frontend Developer", "Web Developer"],
+            typeSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        })
+
+    </script>
+</body>
+
+</html>
